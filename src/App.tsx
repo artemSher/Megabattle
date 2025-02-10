@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from './components/UI';
+import { Button, Waves } from './components/UI';
 import './styles/main.scss';
 
 const App: React.FC = () => {
@@ -10,6 +10,9 @@ const App: React.FC = () => {
         <Button onClick={() => console.log('Button clicked')}>
           Подробнее
         </Button>
+      </div>
+      <div style={{ marginTop: '50px' }}>
+        <Waves />
       </div>
     </div>
   );
