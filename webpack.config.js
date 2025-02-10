@@ -32,7 +32,22 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
-    port: 3000,
+    port: 'auto',
     hot: true,
+    open: false, 
+    client: {
+      logging: 'none',
+      overlay: true,
+    },
+    compress: true,
+    host: 'localhost',
+    onListening: function (devServer) {
+      if (!devServer) {
+        throw new Error('webpack-dev-server is not defined');
+      }
+      const port = devServer.server.address().port;
+      console.log('\x1b[36m%s\x1b[0m', `Server is running at http://localhost:${port}`);
+    },
   },
+  stats: 'minimal',
 };
